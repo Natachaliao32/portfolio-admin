@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { useFetch } from './hooks/useFetch';
+import { CreateProperty } from './pages/CreateProperty';
+import { CreateProject } from './pages/CreateProject';
+import { propertyType } from './types';
 
 function App() {
+
+  const [categories, setCategories] = useState<propertyType[]>([]);
+  const [tools, setTools] = useState<propertyType[]>([]);
+
+  const fetchData = useFetch();
+
+  const updateCategories = async () => {
+    const data = await fetchData("http://localhost:3000/categories", "GET");
+    setCategories(data);
+  }
+
+  const updateTools = async () => {
+    const data = await fetchData("http://localhost:3000/tools", "GET");
+    setTools(data);
+  }
+
+  useEffect(() => {
+    updateCategories();
+    updateTools();
+  }, [])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <h1>Catégories</h1>
+      <CreateProperty url="http://localhost:3000/categories/" items={categories} updateItems={updateCategories} />
+      <h1>Outils</h1>
+      <CreateProperty url="http://localhost:3000/tools/" items={tools} updateItems={updateTools} />
+      <h1>Projet</h1> */}
+      <CreateProject categories={categories} tools={tools} />
     </div>
   );
 }
