@@ -3,6 +3,12 @@ type propertyType = {
     name: string
 }
 
+type fileType = {
+    path: string,
+    media: "picture" | "video",
+    external: boolean
+}
+
 type projectType = {
     name: string,
     date: number,
@@ -12,9 +18,9 @@ type projectType = {
     links: string[],
     tools: propertyType[],
     description: string,
-    files: string[]
+    files: fileType[]
 }
 
 type projectPropertyType = "name" | "date" | "categories" | "cover" | "contributors" | "links" | "tools" | "description" | "files";
 
-export type { propertyType, projectType, projectPropertyType }
+export type { propertyType, projectType, projectPropertyType, fileType }
