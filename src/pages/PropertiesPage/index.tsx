@@ -1,4 +1,4 @@
-import { Col, Row, Space } from "antd";
+import { Col, Row } from "antd";
 import Title from "antd/lib/typography/Title";
 import { CreateProperty } from "../../components/CreateProperty";
 import { propertyType } from "../../types";
