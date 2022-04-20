@@ -1,5 +1,5 @@
 import { Row, Col, Typography, Image, Button, Divider, Space } from "antd"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { projectType, propertyType } from "../../types"
 import { CreateProject } from "../CreateProject"

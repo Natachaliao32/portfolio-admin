@@ -16,10 +16,9 @@ const ProjectsDashboard = ({ url, projects, updateProjects }: ProjectsDashboardP
   const [modal, contextHolder] = Modal.useModal();
   const fetchData = useFetch();
 
-  console.log(projects);
-
   const onButtonClick = (e: React.MouseEvent, uid: string) => {
     e.stopPropagation();
+    e.preventDefault();
     const config = {
       title: 'Voulez-vous supprimer le projet ?',
       onOk: async () => {
@@ -55,10 +54,9 @@ const ProjectsDashboard = ({ url, projects, updateProjects }: ProjectsDashboardP
       </Row>
       <Row gutter={24}>
         {projects.map((project, i) =>
-          <Col span={6}>
+          <Col span={6} key={`project-${i}`}>
             <Link to={`/projects/${project._id}`}>
               <Card
-                key={`project-${i}`}
                 hoverable
                 style={{ width: '100%' }}
                 cover={<img alt="example" src={`${url}/files/${project.cover}`} height={150}/ >}

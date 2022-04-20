@@ -65,8 +65,8 @@ const CreateProject = ({ data, url, categories, tools, updateCategories, updateT
     links: data.links,
     tools: data.tools,
     description: data.description,
-    ['uploaded-files']: data.files.filter(file => !file.external).map((file, i) => UploadFileFormat(file.path, i.toString())),
-    ['external-files']: data.files.filter(file => file.external).map(file => file.path),
+    'uploaded-files': data.files.filter(file => !file.external).map((file, i) => UploadFileFormat(file.path, i.toString())),
+    'external-files': data.files.filter(file => file.external).map(file => file.path),
   } : undefined;
 
   console.log("initialValues", initialValues);
@@ -94,17 +94,6 @@ const CreateProject = ({ data, url, categories, tools, updateCategories, updateT
       message.error(response.error);
     }
     else console.log(response);
-  }
-
-  const changeName = (name: string, names: string[], index: number): string => {
-    let newName = `${name}_${index}`;
-
-    if (!names.includes(newName)) {
-      console.log('names: ', names);
-      console.log('newName:', newName);
-      return newName;
-    }
-    return changeName(name, names, index + 1);
   }
 
   const onFinish = async (project: any) => {
@@ -136,7 +125,7 @@ const CreateProject = ({ data, url, categories, tools, updateCategories, updateT
 
     // Format project
 
-    const {['external-files']: a, ['uploadedDiles']: b, ...projectProps} = project;
+    const {'external-files': a, 'uploaded-files': b, ...projectProps} = project;
     const cpy = { ...projectProps, files: [] };
 
     const formData = new FormData();
@@ -347,7 +336,3 @@ const CreateProject = ({ data, url, categories, tools, updateCategories, updateT
 }
 
 export { CreateProject }
-
-function useHistory() {
-  throw new Error("Function not implemented.");
-}

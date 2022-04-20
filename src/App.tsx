@@ -10,7 +10,7 @@ import { Layout, message } from 'antd';
 import { SideMenu } from './components/SideMenu';
 import { Routes, Route } from 'react-router-dom';
 import { ProjectPage } from './pages/ProjectPage';
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 function App() {
 
@@ -31,8 +31,8 @@ function App() {
     update("categories", setCategories);
     update("tools", setTools);
     update("projects", setProjects);
-    console.log(projects);
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) 
 
 
   return (
