@@ -5,13 +5,14 @@ type propertyType = {
 
 type fileType = {
     path: string,
-    media: "picture" | "video",
-    external: boolean
+    media: "image" | "video",
+    external: boolean,
 }
 
 type projectType = {
+    _id?: string,
     name: string,
-    date: number,
+    date: string,
     categories: propertyType[],
     cover: string,
     contributors: string[],

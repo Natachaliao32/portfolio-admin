@@ -1,3 +1,4 @@
+import { message } from "antd";
 import { useState } from "react";
 
 const useFetch = () => {
@@ -21,7 +22,6 @@ const useFetch = () => {
             })
 
             if(!response.ok) {
-                alert("Pas de réponse");
                 Promise.reject(response)
             };
             
@@ -29,7 +29,6 @@ const useFetch = () => {
             
         } catch (error) {
             console.log(error);
-            alert(error);
         }
 
         return data;
