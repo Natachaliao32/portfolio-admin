@@ -4,23 +4,24 @@ import { CreateProperty } from "../../components/CreateProperty";
 import { propertyType } from "../../types";
 
 type PropertiesPageProps = {
+    url: string,
     categories: propertyType[],
     tools: propertyType[],
     updateCategories: Function,
     updateTools: Function,
 }
 
-const PropertiesPage = ({ categories, tools, updateCategories, updateTools }: PropertiesPageProps) => {
+const PropertiesPage = ({ url, categories, tools, updateCategories, updateTools }: PropertiesPageProps) => {
     return (
         <div className="page">
             <Row gutter={40}>
                 <Col span={12}>
                     <Title level={2}>Catégories</Title>
-                    <CreateProperty url="http://localhost:3000/categories/" items={categories} updateItems={updateCategories} />
+                    <CreateProperty url={`${url}/categories`} items={categories} updateItems={updateCategories} />
                 </Col>
                 <Col span={12}>
                     <Title level={2}>Outils</Title>
-                    <CreateProperty url="http://localhost:3000/tools/" items={tools} updateItems={updateTools} />
+                    <CreateProperty url={`${url}/tools`} items={tools} updateItems={updateTools} />
                 </Col>
 
             </Row>

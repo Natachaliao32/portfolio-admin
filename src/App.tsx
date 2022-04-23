@@ -62,6 +62,7 @@ function App() {
             } />
             <Route path='/properties' element={
               <PropertiesPage
+                url={url}
                 categories={categories}
                 tools={tools}
                 updateCategories={update.bind(null, "categories", setCategories)}
