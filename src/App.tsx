@@ -18,7 +18,8 @@ function App() {
   const [tools, setTools] = useState<propertyType[]>([]);
   const [projects, setProjects] = useState<projectType[]>([]);
 
-  const url = "http://localhost:3000";
+  // const url = "http://localhost:3000";
+  const url = "https://demo-portfolio-api.herokuapp.com";
   const fetchData = useFetch();
 
   const update = async (name: string, callback: Function) => {
